@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Expense Tracker</h1>
+      <div class="input-group">
+        <label for="expenseDescription">Description:</label>
+        <input
+          type="text"
+          id="expenseDescription"
+          placeholder="Enter expense description"
+        />
+      </div>
+      <div class="input-group">
+        <br />
+        <label for="expenseAmount">Amount (₹):</label>
+        <input
+          type="number"
+          id="expenseAmount"
+          placeholder="Enter expense amount"
+          onkeypress="handleKeyPress(event)"
+        />
+      </div>
+      <br />
+      <button class="add" onclick="addExpense()">Add Expense</button>
+      <ul id="expenseList"></ul>
+      <div class="total">
+        Total Expenses: ₹<span id="totalExpenses">0.00</span>
+      </div>
+      <div class="button-group">
+        <br /><br />
+        <button class="clear" onclick="clearAllExpenses()">
+          Clear All Expenses
+        </button>
+        <button class="export" onclick="exportExpenses('txt')">
+          Export as Text
+        </button>
+        <button class="export" onclick="exportExpenses('json')">
+          Export as JSON
+        </button>
+      </div>
+      <div class="import-group">
+        <label for="importExpenses">Import Expense</label>
+        <input
+          type="file"
+          id="importExpenses"
+          accept=".json, .txt"
+          onchange="importExpenses(event)"
+        />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
